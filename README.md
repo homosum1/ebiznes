@@ -13,4 +13,4 @@
 ❌ 5.0 dodać konfigurację docker-compose
 
 kod: [folder](https://github.com/homosum1/ebiznes/tree/main/zadanie_01)
-
+dockerHub: krab7153/zadanie_01
