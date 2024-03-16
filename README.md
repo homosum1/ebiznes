@@ -12,5 +12,5 @@
 
 ❌ 5.0 dodać konfigurację docker-compose
 
-folder: [folder](https://github.com/homosum1/ebiznes/tree/main/zadanie_01)
+kod: [folder](https://github.com/homosum1/ebiznes/tree/main/zadanie_01)
 
