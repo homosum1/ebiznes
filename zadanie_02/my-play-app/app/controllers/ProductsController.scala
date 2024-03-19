@@ -50,7 +50,7 @@ class ProductsController @Inject()(val controllerComponents: ControllerComponent
         if (itemNameOption.isEmpty || itemIdOption.isEmpty || itemPriceOption.isEmpty || itemQuantityOption.isEmpty) {
             BadRequest("Nie podano wszystkich wymaganych parametrow")
         } else {
-            
+
             val itemName = itemNameOption.get
             val itemId = itemIdOption.get
             val itemPrice = itemPriceOption.get
@@ -65,6 +65,42 @@ class ProductsController @Inject()(val controllerComponents: ControllerComponent
                 itemList = newItem :: itemList
                 Ok("Przedmiot dodany do listy")
             }
+        }
+    }
+
+    def deleteOne(id: Int) = Action { implicit request: Request[AnyContent] =>
+        val index = itemList.indexWhere(_.id == id)
+
+        if (index != -1) {
+            itemList = itemList.patch(index, Nil, 1)
+            Ok("Przedmiot zostal usuniety")
+        } else {
+            NotFound("Nie znaleziono przedmiotu o zadanym id")
+        }
+    }
+
+    def update(id: Int) = Action(parse.json) { implicit request: Request[JsValue] =>
+
+        val index = itemList.indexWhere(_.id == id)
+
+        if (index == -1) {
+            NotFound("Nie znaleziono przedmiotu o zadanym id")
+        } else {
+
+            val itemNameOption = (request.body \ "name").asOpt[String]
+            val itemPriceOption = (request.body \ "price").asOpt[Double]
+            val itemQuantityOption = (request.body \ "quantity").asOpt[Int]
+            val itemIconOption = (request.body \ "icon").asOpt[String]
+
+            val updatedItem = itemList(index).copy(
+                name = itemNameOption.getOrElse(itemList(index).name),
+                price = itemPriceOption.getOrElse(itemList(index).price),
+                quantity = itemQuantityOption.getOrElse(itemList(index).quantity),
+                icon = itemIconOption.getOrElse(itemList(index).icon)
+            )
+
+            itemList = itemList.updated(index, updatedItem)
+            Ok("Udalo sie zaktualizowac komponent")
         }
     }
 }
