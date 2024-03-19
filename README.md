@@ -22,9 +22,9 @@ docker hub: krab7153/zadanie_01
 
 Należy stworzyć aplikację na frameworku Play w Scali 2.
 
-❌ 3.0 Należy stworzyć kontroler do Produktów
+✅ 3.0 Należy stworzyć kontroler do Produktów
 
-❌ 3.5 Do kontrolera należy stworzyć endpointy zgodnie z CRUD - dane pobierane z listy
+✅ 3.5 Do kontrolera należy stworzyć endpointy zgodnie z CRUD - dane pobierane z listy
 
 ❌ 4.0 Należy stworzyć kontrolery do Kategorii oraz Koszyka + endpointy zgodnie z CRUD
 
@@ -33,3 +33,5 @@ Należy stworzyć aplikację na frameworku Play w Scali 2.
 ❌ 5.0 Należy dodać konfigurację CORS dla dwóch hostów dla metod CRUD
 
 Kontrolery mogą bazować na listach zamiast baz danych. CRUD: show all, show by id (get), update (put), delete (delete), add (post).
+
+kod: [folder](https://github.com/homosum1/ebiznes/tree/main/zadanie_02)
