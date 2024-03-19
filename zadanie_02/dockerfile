@@ -1,0 +1,30 @@
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+RUN apt-get update && \
+    apt-get install -y wget unzip zip curl && \
+    apt-get install -y openjdk-11-jdk
+
+
+RUN curl -s "https://get.sdkman.io" | bash
+
+RUN bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install sbt"
+
+ENV SDKMAN_DIR=/root/.sdkman
+ENV PATH="$SDKMAN_DIR/candidates/sbt/current/bin:$PATH"
+
+# Set up directory for Play project
+WORKDIR /app
+
+# Create a new Play Framework project for Scala 2
+# sbt new -> playframework/play-scala-seed.g8 for a Play Scala project
+RUN bash -c "source /root/.sdkman/bin/sdkman-init.sh && sbt new playframework/play-scala-seed.g8 --name=my-play-app --scala_version=2.13.8"
+
+# Expose the default Play port
+EXPOSE 9000
+
+# Set the working directory
+WORKDIR /app/my-play-app
+
+# Default command to run Play application
+CMD ["sbt", "run"]

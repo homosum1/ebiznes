@@ -20,7 +20,9 @@ RUN apt-get install -y \
 	
 # gradle install
 RUN curl -s "https://get.sdkman.io" | bash && \
-   /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install gradle"
+    /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install gradle && gradle init --type java-library"
+
+
 
 # gradle project
 #RUN gradle init --type java-library
