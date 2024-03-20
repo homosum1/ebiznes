@@ -1,6 +1,6 @@
 # ebiznes
 
-### zadanie 1
+### zadanie 1 - Docker
 
 ✅ 3.0 obraz ubuntu z Pythonem w wersji 3.8
 
@@ -18,7 +18,7 @@ docker hub: krab7153/zadanie_01
 
 ---
 
-### zadanie 2
+### zadanie 2 - Scala 2
 
 Należy stworzyć aplikację na frameworku Play w Scali 2.
 
@@ -35,3 +35,19 @@ Należy stworzyć aplikację na frameworku Play w Scali 2.
 Kontrolery mogą bazować na listach zamiast baz danych. CRUD: show all, show by id (get), update (put), delete (delete), add (post).
 
 kod: [folder](https://github.com/homosum1/ebiznes/tree/main/zadanie_02)
+
+---
+
+### Zadanie 3 - Kotlin
+
+❌ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord
+
+❌ 3.5 Aplikacja jest w stanie odbierać wiadomości użytkowników z platformy Discord skierowane do aplikacji (bota)
+
+❌ 4.0 Zwróci listę kategorii na określone żądanie użytkownika
+
+❌ 4.5 Zwróci listę produktów wg żądanej kategorii
+
+❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenfer, Webex, Skype, Discrod
+
+kod: 
