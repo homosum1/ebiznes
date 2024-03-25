@@ -1,0 +1,29 @@
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y \
+    unzip \ 
+    zip \ 
+    curl \
+    openjdk-11-jdk
+
+WORKDIR /app
+
+
+COPY my-ktor.zip .
+
+RUN unzip my-ktor.zip -d my-ktor
+
+WORKDIR /app/my-ktor
+
+RUN ./gradlew build
+
+EXPOSE 8080
+
+CMD ["./gradlew", "run"]
+
+
+# docker build -t ktor-dev .
+# docker run -p 8080:8080 ktor-dev
